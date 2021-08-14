@@ -1,0 +1,72 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-component {
+    margin-top: 20px;
+}
+
+.form-component input[type=button] {
+    background-color: rgb(72, 243, 72);
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 10px;
+    min-width: 50px;
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    color: orangered;
+}
+
+.button-minus {
+    margin-left: 200px;
+    background-color: orangered;
+}
+
+.button-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    padding: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(72, 243, 72);
+    font-weight: bold;
+}
+
+.button-delete {
+    margin-left: 50px;
+}
+
+.number-beers {
+    font-size: 200%;
+    color: orangered;
+}
+
+.drinkers-name {
+    font-size: 120%;
+    font: bold;
+    /* color: yellowgreen; */
+}
+
+tr.priority {
+    text-align: center;
+    display: block;
+    min-width: 200px;
+}

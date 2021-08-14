@@ -15,10 +15,36 @@ const TableBody = (props) => {
   const rows = props.persons.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.beers}</td>
+        <tr className="priority">
+          <p className="number-beers">{row.beers}</p>
+        </tr>
+        <tr className="priority">
+          <p className="drinkers-name">{row.name}</p>
+        </tr>
+
         <td>
-          <button onClick={() => props.removePerson(index)}>Delete</button>
+          <button
+            className="button-plus"
+            onClick={() => props.modifyBeers(index, 1)}
+          >
+            +
+          </button>
+        </td>
+        <td>
+          <button
+            className="button-minus"
+            onClick={() => props.modifyBeers(index, -1)}
+          >
+            -
+          </button>
+        </td>
+        <td>
+          <button
+            className="button-delete"
+            onClick={() => props.removePerson(index)}
+          >
+            Delete
+          </button>
         </td>
       </tr>
     );
@@ -28,10 +54,14 @@ const TableBody = (props) => {
 };
 
 const Table = (props) => {
-  const { persons, removePerson } = props;
+  const { persons, removePerson, modifyBeers } = props;
   return (
     <table>
-      <TableBody persons={persons} removePerson={removePerson}></TableBody>
+      <TableBody
+        persons={persons}
+        removePerson={removePerson}
+        modifyBeers={modifyBeers}
+      ></TableBody>
     </table>
   );
 };

@@ -21,6 +21,14 @@ class App extends Component {
     });
   };
 
+  modifyBeers = (index, nrBeers) => {
+    const { persons } = this.state;
+
+    persons[index].beers += nrBeers;
+
+    this.setState({ persons: persons });
+  };
+
   render() {
     const persons = [
       {
@@ -42,7 +50,7 @@ class App extends Component {
     ];
 
     return (
-      <div>
+      <div className="container">
         <h1>
           The most basic app for not forgetting the number of beers you had this
           night!
@@ -51,6 +59,7 @@ class App extends Component {
         <Table
           persons={this.state.persons}
           removePerson={this.removePerson}
+          modifyBeers={this.modifyBeers}
         ></Table>
         <Form handleSubmit={this.handleSubmit}></Form>
       </div>

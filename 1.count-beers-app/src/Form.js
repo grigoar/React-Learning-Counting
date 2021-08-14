@@ -18,9 +18,9 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    alert(
-      `a person ${this.state.name} was added and he/she drunk ${this.state.beers} beers`
-    );
+    // alert(
+    //   `a person ${this.state.name} was added and he/she drunk ${this.state.beers} beers`
+    // );
     this.props.handleSubmit(this.state);
     this.setState(this.initialState);
     event.preventDefault();
@@ -29,16 +29,16 @@ class Form extends Component {
   render() {
     const { name, beers } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Name: </label>
+      <form className="form-component" onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="name"
           id="name"
           value={name}
+          placeholder="Drinking Buddy"
           onChange={this.handleChange}
         ></input>
-        <input type="button" value="Submit" onClick={this.handleSubmit}></input>
+        <input type="button" value="Add" onClick={this.handleSubmit}></input>
       </form>
     );
   }
