@@ -24,6 +24,7 @@ class App extends Component {
   modifyBeers = (index, nrBeers) => {
     const { persons } = this.state;
 
+    if (nrBeers < 0 && persons[index].beers === 0) return;
     persons[index].beers += nrBeers;
 
     this.setState({ persons: persons });
