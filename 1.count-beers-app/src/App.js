@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Person from "./Person";
+import Form from "./Form";
+import Table from "./Table";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    persons: [],
+  };
+
+  handleSubmit = (person) => {
+    this.setState({ persons: [...this.state.persons, person] });
+  };
+
+  removePerson = (index) => {
+    const { persons } = this.state;
+    this.setState({
+      persons: persons.filter((person, i) => {
+        return i != index;
+      }),
+    });
+  };
+
+  render() {
+    const persons = [
+      {
+        name: "Charlie",
+        beers: "4",
+      },
+      {
+        name: "Mac",
+        beers: "6",
+      },
+      {
+        name: "Dee",
+        beers: "2",
+      },
+      {
+        name: "Dennis",
+        beers: "5",
+      },
+    ];
+
+    return (
+      <div>
+        <h1>
+          The most basic app for not forgetting the number of beers you had this
+          night!
+        </h1>
+
+        <Table
+          persons={this.state.persons}
+          removePerson={this.removePerson}
+        ></Table>
+        <Form handleSubmit={this.handleSubmit}></Form>
+      </div>
+    );
+  }
 }
 
 export default App;
