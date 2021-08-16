@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Person from "./Person";
 import Form from "./Form";
 import Table from "./Table";
+import { Provider } from "react-redux";
+
+import { increaseBeers, decreaseBeers } from "../actions";
 
 class App extends Component {
   state = {
