@@ -2,32 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider, connect } from "react-redux";
 import { createStore } from "redux";
-import eventsReducer from "./reducers/reducers";
+import nrBeersReducer from "./reducers";
 
 import "./index.css";
-// import App from "./components/App";
+import App from "./App";
 
-const store = createStore(eventsReducer);
+const store = createStore(nrBeersReducer);
 
-const Component = ({ count, handleIncrementClick, handleDecrementClick }) => (
+const Component = ({ person, handleIncrementClick, handleDecrementClick }) => (
   <div>
-    <h1> Hello React & Redux ! {count}</h1>;
+    <h1> Hello React & Redux ! {person.beers}</h1>;
     <button onClick={handleIncrementClick}>Increment</button>
     <button onClick={handleDecrementClick}>Decrement</button>
   </div>
 );
 // const Container = connect()(Component);
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById("root")
-// );
-
 const mapStateToProps = (state) => {
   return {
-    count: state,
+    person: state,
   };
 };
 
@@ -38,10 +31,16 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-const App = () => (
-  <Provider store={store}>
-    <Container />
-  </Provider>
-);
+// const App = () => (
+//   <Provider store={store}>
+//     <Container />
+//   </Provider>
+// );
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
