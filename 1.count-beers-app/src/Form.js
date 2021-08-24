@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addPerson } from "./redux/actions";
 
 class Form extends Component {
   constructor(props) {
@@ -18,18 +20,18 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    // alert(
-    //   `a person ${this.state.name} was added and he/she drunk ${this.state.beers} beers`
-    // );
-    this.props.handleSubmit(this.state);
+    //dispatches actions to add person
+    this.props.addPerson(this.state);
     this.setState(this.initialState);
+    // this.props.handleSubmit(this.state);
+    // this.setState(this.initialState);
     event.preventDefault();
   }
 
   render() {
     const { name, beers } = this.state;
     return (
-      <form className="form-component" onSubmit={this.handleSubmit}>
+      <div className="form-component">
         <input
           type="text"
           name="name"
@@ -38,10 +40,15 @@ class Form extends Component {
           placeholder="Drinking Buddy"
           onChange={this.handleChange}
         ></input>
-        <input type="button" value="Add" onClick={this.handleSubmit}></input>
-      </form>
+        <input
+          type="button"
+          value="Add Person"
+          onClick={this.handleSubmit}
+        ></input>
+      </div>
     );
   }
 }
+const mapStateToProps = (state, ownProps) => {};
 
-export default Form;
+export default connect(null, { addPerson })(Form);

@@ -3,7 +3,7 @@ import Person from "./Person";
 import Form from "./Form";
 import Table from "./Table";
 import { connect } from "react-redux";
-import { increaseBeers, decreaseBeers } from "./redux/actions";
+import { increaseBeers, decreaseBeers, addPerson } from "./redux/actions";
 class App extends Component {
   state = {
     persons: [],
@@ -70,7 +70,7 @@ class App extends Component {
 }
 const mapStateToProps = (state, ownProps) => {};
 
-export default connect(null, { increaseBeers })(App);
+export default connect(null, { addPerson })(App);
 // export default App;
 
 // const mapStateToProps = (state, ownProps) => ({
