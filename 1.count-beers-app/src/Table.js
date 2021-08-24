@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getPersons } from "./redux/selectors";
 
 const TableHeader = () => {
   return (
@@ -12,7 +14,28 @@ const TableHeader = () => {
 };
 const TableBody = (props) => {
   //   console.log("Something to debug" + props.persons[0].name);
-  const rows = props.persons.map((row, index) => {
+  // const persons = [
+  //   {
+  //     name: "Charlie",
+  //     beers: "4",
+  //   },
+  //   {
+  //     name: "Mac",
+  //     beers: "6",
+  //   },
+  //   {
+  //     name: "Dee",
+  //     beers: "2",
+  //   },
+  //   {
+  //     name: "Dennis",
+  //     beers: "5",
+  //   },
+  // ];
+  console.log("from table-body");
+  console.log(props);
+  const { persons } = props;
+  const rows = persons.map((row, index) => {
     return (
       <tr key={index}>
         <tr className="priority">
@@ -27,7 +50,7 @@ const TableBody = (props) => {
             className="button-plus"
             onClick={() => props.modifyBeers(index, 1)}
           >
-            +
+            + {props.a}
           </button>
         </td>
         <td>
@@ -55,14 +78,25 @@ const TableBody = (props) => {
 
 const Table = (props) => {
   const { persons, removePerson, modifyBeers } = props;
+  console.log(props);
   return (
     <table>
       <TableBody
         persons={persons}
         removePerson={removePerson}
         modifyBeers={modifyBeers}
+        a={props.a}
       ></TableBody>
     </table>
   );
 };
-export default Table;
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.addPersonR);
+
+  return { a: 33, persons: state.addPersonR.persons };
+};
+export default connect(mapStateToProps)(Table);
+// export default connect((state) => ({ persons: getPersons(state) }))(Table);
+
+// export default Table;

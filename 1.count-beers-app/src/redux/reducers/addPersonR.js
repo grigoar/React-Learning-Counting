@@ -29,10 +29,11 @@ const addPersonR = (state = initialState, action) => {
   console.log("is this called");
   switch (action.type) {
     case ADD_NEW_DRINKING_BUDDY: {
-      return {
+      const newState = {
         ...state,
         persons: [...state.persons, action.payload],
       };
+      return newState;
     }
     default: {
       return state;
