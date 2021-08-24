@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import Person from "./Person";
 import Form from "./Form";
 import Table from "./Table";
-import { Provider } from "react-redux";
-
-import { increaseBeers, decreaseBeers } from "./actions";
-
+import { connect } from "react-redux";
+import { increaseBeers, decreaseBeers } from "./redux/actions";
 class App extends Component {
   state = {
     persons: [],
   };
 
-  handleSubmit = (person) => {
+  addPerson = (person) => {
     this.setState({ persons: [...this.state.persons, person] });
   };
 
@@ -65,10 +63,28 @@ class App extends Component {
           removePerson={this.removePerson}
           modifyBeers={this.modifyBeers}
         ></Table>
-        <Form handleSubmit={this.handleSubmit}></Form>
+        <Form handleSubmit={this.addPerson}></Form>
       </div>
     );
   }
 }
+const mapStateToProps = (state, ownProps) => {};
 
-export default App;
+export default connect(null, { increaseBeers })(App);
+// export default App;
+
+// const mapStateToProps = (state, ownProps) => ({
+//   // ... computed data from state and optionally ownProps
+// })
+
+// const mapDispatchToProps = {
+//   // ... normally is an object full of action creators
+// }
+
+// // `connect` returns a new function that accepts the component to wrap:
+// const connectToStore = connect(mapStateToProps, mapDispatchToProps)
+// // and that function returns the connected, wrapper component:
+// const ConnectedComponent = connectToStore(Component)
+
+// // We normally do both in one step, like this:
+// connect(mapStateToProps, mapDispatchToProps)(Component)
