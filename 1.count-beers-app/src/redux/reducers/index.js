@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 import countBeers from "./countBeers";
-import addPersonR from "./addPersonR";
+import personR from "./personR";
 
-export default combineReducers({ countBeers, addPersonR });
+export default combineReducers({ countBeers, personR });

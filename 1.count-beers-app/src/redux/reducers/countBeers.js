@@ -4,28 +4,7 @@ import {
   ADD_NEW_DRINKING_BUDDY,
 } from "../actionTypes";
 const initialState = {
-  persons: [
-    {
-      name: "Charlie",
-      beers: 4,
-    },
-    {
-      name: "Mac",
-      beers: 6,
-    },
-    {
-      name: "Dee",
-      beers: 2,
-    },
-    {
-      name: "Dennis",
-      beers: 5,
-    },
-    {
-      name: "Grig",
-      beers: 0,
-    },
-  ],
+  persons: [],
 };
 
 // function nrBeersReducer(state = { name: "Grig", beers: 0 }, action) {
