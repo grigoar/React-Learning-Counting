@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getPersons } from "./redux/selectors";
 import { deletePerson } from "./redux/actions";
 import { DELETE_DRINKING_BUDDY } from "./redux/actionTypes";
+import TableBody from "./TableBody";
 
 const TableHeader = () => {
   return (
@@ -13,69 +14,6 @@ const TableHeader = () => {
       </tr>
     </thead>
   );
-};
-const TableBody = (props) => {
-  //   console.log("Something to debug" + props.persons[0].name);
-  // const persons = [
-  //   {
-  //     name: "Charlie",
-  //     beers: "4",
-  //   },
-  //   {
-  //     name: "Mac",
-  //     beers: "6",
-  //   },
-  //   {
-  //     name: "Dee",
-  //     beers: "2",
-  //   },
-  //   {
-  //     name: "Dennis",
-  //     beers: "5",
-  //   },
-  // ];
-  console.log("from table-body");
-  console.log(props);
-  const { persons } = props;
-  const rows = persons.map((row, index) => {
-    return (
-      <tr key={index}>
-        <tr className="priority">
-          <p className="number-beers">{row.beers}</p>
-        </tr>
-        <tr className="priority">
-          <p className="drinkers-name">{row.name}</p>
-        </tr>
-
-        <td>
-          <button
-            className="button-plus"
-            onClick={() => props.modifyBeers(index, 1)}
-          >
-            + {props.a}
-          </button>
-        </td>
-        <td>
-          <button
-            className="button-minus"
-            onClick={() => props.modifyBeers(index, -1)}
-          >
-            -
-          </button>
-        </td>
-        <td>
-          <button
-            className="button-delete"
-            onClick={() => props.removePerson(index)}
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    );
-  });
-
-  return <tbody>{rows}</tbody>;
 };
 
 const Table = (props) => {

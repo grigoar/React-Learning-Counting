@@ -19,11 +19,6 @@ function nrBeersReducer(state = initialState, action) {
       state.beers -= 1;
       return state;
     }
-    case ADD_NEW_DRINKING_BUDDY: {
-      return {
-        ...state,
-      };
-    }
     default:
       return state;
   }

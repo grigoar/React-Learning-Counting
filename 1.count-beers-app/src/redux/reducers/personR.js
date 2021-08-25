@@ -1,4 +1,9 @@
-import { ADD_NEW_DRINKING_BUDDY, DELETE_DRINKING_BUDDY } from "../actionTypes";
+import {
+  ADD_NEW_DRINKING_BUDDY,
+  DELETE_DRINKING_BUDDY,
+  INCREASE_BEER_NUMBER,
+  DECREASE_BEER_NUMBER,
+} from "../actionTypes";
 
 const initialState = {
   persons: [],
@@ -16,32 +21,39 @@ const personR = (state = initialState, action) => {
       return newState;
     }
     case DELETE_DRINKING_BUDDY: {
-      console.log("from delete reducer");
-      console.log(action.payload);
-      console.log(state.persons);
-
-      console.log("for the splice method");
-      const newState1 = { ...state };
-      const newPersons = newState1.persons.slice(action.payload, 1);
-      console.log(newPersons);
       let newState = {
         ...state,
-        persons: state.persons.filter((person, i) => i !== action.payload),
+        persons: [
+          ...state.persons.slice(0, action.payload),
+          ...state.persons.slice(action.payload + 1),
+        ],
+        // persons: state.persons.filter((person, i) => i !== action.payload),
       };
-      //need more investigation with slice function-----------------------------------------------
-      // persons: [
-      //   ...state.persons.slice(0, action.payload),
-      //   ...(state.persons.slice(action.payload) + 1),
-      // ],
-      // persons: [state.persons.splice(action.payload, 1)],
-      // const index = newState.persons.indexOf(action.payload);
-      // console.log(newState);
-      // console.log(action.payload);
-      // console.log(index);
-      console.log(newState);
-
-      // newState.persons.splice(action.payload, 1);
-      // console.log(newState);
+      return newState;
+    }
+    case INCREASE_BEER_NUMBER:
+      const personIndex = state.persons.findIndex((person, index) => {
+        return index === action.payload;
+      });
+      console.log("The person to increase the beers" + action.payload);
+      console.log(personIndex);
+      let newState = {
+        ...state,
+        persons: state.persons.map((person, index) => {
+          if (action.payload === index) person.beers += 1;
+          return person;
+        }),
+      };
+      // newState.persons[personIndex].beers += 1;
+      return newState;
+    case DECREASE_BEER_NUMBER: {
+      let newState = {
+        ...state,
+        persons: state.persons.map((person, index) => {
+          if (action.payload === index && person.beers > 0) person.beers -= 1;
+          return person;
+        }),
+      };
       return newState;
     }
     default: {

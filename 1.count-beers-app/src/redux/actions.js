@@ -5,19 +5,19 @@ import {
   DELETE_DRINKING_BUDDY,
 } from "./actionTypes";
 //Action creators
-export const increaseBeers = (person) => {
+export const increaseBeers = (index) => {
   //Return an action
   return {
     type: INCREASE_BEER_NUMBER,
-    payload: person,
+    payload: index,
   };
 };
 
-export const decreaseBeers = (person) => {
+export const decreaseBeers = (index) => {
   //Return an action
   return {
     type: DECREASE_BEER_NUMBER,
-    payload: person,
+    payload: index,
   };
 };
 
