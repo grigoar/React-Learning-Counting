@@ -28,7 +28,8 @@ export const TypingMain = () => {
       });
     }
     setDynamicText(dynamicTextFirstRender);
-    console.log(dynamicTextFirstRender);
+    setMatchingText(matchText);
+    // console.log(dynamicTextFirstRender);
   }, []);
 
   const displayTypedText = (e) => {
@@ -41,30 +42,43 @@ export const TypingMain = () => {
     // e.target.value.length > textLength.current
     //   ? setCurrentIndex(currentIndex + 1)
     //   : setCurrentIndex(currentIndex - 1);
-    // textLength.current = e.target.value.length;
 
     setCurrentIndex(e.target.value.length);
-    console.log(`Something and the current index id: ${currentIndex}`);
+    console.log(textLength);
+    // console.log(`Something and the current index id: ${currentIndex}`);
+    // console.log(matchText);
     setMatchingText(
       dynamicText.map((letter, index) => {
-        if (
+        if (e.target.value.length <= index) {
+          letter.check = "normal";
+        } else if (
           e.target.value.slice(-1) === letter.character &&
           index === currentIndex
         ) {
           letter.check = "valid";
+        } else if (
+          letter.check === "normal" &&
+          e.target.value.slice(-1) !== letter.character &&
+          index === currentIndex
+        ) {
+          letter.check = "invalid";
         }
-        //   console.log(letter);
-        // <div style={{ color: letter.check === "valid" ? "green" : "red" }}>
-        console.log(currentIndex + " , " + index);
+
+        textLength.current = e.target.value.length;
         return (
-          <div
+          <span
             key={index}
             style={{
-              color: letter.check === "valid" ? "green" : "red",
+              backgroundColor:
+                letter.check === "normal"
+                  ? "transparent"
+                  : letter.check === "valid"
+                  ? "#99cc00"
+                  : "#f0a3a3",
             }}
           >
             {letter.character}
-          </div>
+          </span>
         );
       })
     );
@@ -87,18 +101,17 @@ export const TypingMain = () => {
   };
 
   return (
-    <main>
-      <div>{matchText} </div>
-
+    <main className="typing-main">
+      <div className="typing-main__text">{matchingText}</div>
       <input
+        className="typing-main__input"
+        style={{ width: "100%" }}
         type="text"
         id="typeText"
         value={typedText}
         onChange={(e) => displayTypedText(e)}
         onKeyDown={(e) => handleIndex(e)}
       ></input>
-      <div>Text typed: {typedText}</div>
-      <div>Text Matched: {matchingText}</div>
     </main>
   );
 };
