@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/React-Learning-Counting/static/css/main.b188758e.chunk.css",
-    "main.js": "/React-Learning-Counting/static/js/main.4864d374.chunk.js",
-    "main.js.map": "/React-Learning-Counting/static/js/main.4864d374.chunk.js.map",
-    "runtime-main.js": "/React-Learning-Counting/static/js/runtime-main.700b8921.js",
-    "runtime-main.js.map": "/React-Learning-Counting/static/js/runtime-main.700b8921.js.map",
-    "static/js/2.1655a3e7.chunk.js": "/React-Learning-Counting/static/js/2.1655a3e7.chunk.js",
-    "static/js/2.1655a3e7.chunk.js.map": "/React-Learning-Counting/static/js/2.1655a3e7.chunk.js.map",
-    "index.html": "/React-Learning-Counting/index.html",
-    "static/css/main.b188758e.chunk.css.map": "/React-Learning-Counting/static/css/main.b188758e.chunk.css.map",
-    "static/js/2.1655a3e7.chunk.js.LICENSE.txt": "/React-Learning-Counting/static/js/2.1655a3e7.chunk.js.LICENSE.txt"
+    "main.css": "/React-Learning-counting-beers-redux/static/css/main.b188758e.chunk.css",
+    "main.js": "/React-Learning-counting-beers-redux/static/js/main.4864d374.chunk.js",
+    "main.js.map": "/React-Learning-counting-beers-redux/static/js/main.4864d374.chunk.js.map",
+    "runtime-main.js": "/React-Learning-counting-beers-redux/static/js/runtime-main.c5dd7803.js",
+    "runtime-main.js.map": "/React-Learning-counting-beers-redux/static/js/runtime-main.c5dd7803.js.map",
+    "static/js/2.1655a3e7.chunk.js": "/React-Learning-counting-beers-redux/static/js/2.1655a3e7.chunk.js",
+    "static/js/2.1655a3e7.chunk.js.map": "/React-Learning-counting-beers-redux/static/js/2.1655a3e7.chunk.js.map",
+    "index.html": "/React-Learning-counting-beers-redux/index.html",
+    "static/css/main.b188758e.chunk.css.map": "/React-Learning-counting-beers-redux/static/css/main.b188758e.chunk.css.map",
+    "static/js/2.1655a3e7.chunk.js.LICENSE.txt": "/React-Learning-counting-beers-redux/static/js/2.1655a3e7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.700b8921.js",
+    "static/js/runtime-main.c5dd7803.js",
     "static/js/2.1655a3e7.chunk.js",
     "static/css/main.b188758e.chunk.css",
     "static/js/main.4864d374.chunk.js"
